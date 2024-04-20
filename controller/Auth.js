@@ -214,6 +214,7 @@ exports.checkAuth = async (req, res) => {
 
 exports.resetPasswordRequest = async (req, res) => {
   const email = req.body.email;
+  try{
   const user = await User.findOne({ email: email });
   if (user) {
     const token = crypto.randomBytes(48).toString('hex');
@@ -222,10 +223,9 @@ exports.resetPasswordRequest = async (req, res) => {
 
     // Also set token in email
     const resetPageLink =
-      'https://nex-market-backend.vercel.app/auth/reset-password?token=' + token + '&email=' + email;
+      "https://nex-market-backend.vercel.app/reset-password";
     const subject = 'reset password for e-commerce';
     const html = `<p>Click <a href='${resetPageLink}'>here</a> to Reset Password</p>`;
-
 
     if (email) {
       const response = await sendMail({ to: email, subject, html });
@@ -236,6 +236,10 @@ exports.resetPasswordRequest = async (req, res) => {
   } else {
     res.sendStatus(400);
   }
+}catch (error) {
+  console.error('Error in resetPasswordRequest:', error);
+  res.status(500).json({ error: 'Internal server error' });
+}
 };
 
 
