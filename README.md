@@ -16,13 +16,11 @@ Preview:
 </p>
 
 <p align="center">
-  
   <br><br><img alt="Clock" src="./assest/img3.png">
   <sub>Cart<sub>
 </p>
 
 <p align="center">
-  
   <br><br><img alt="Clock" src="./assest/img2.png">
   <sub>Product Details<sub>
 </p>
