@@ -36,7 +36,10 @@ server.use(cookieParser());
 
 server.use(
   cors({
-    exposedHeaders: ['X-Total-Count'],
+    // origin: [],
+    // methods:[ POST, GET, PATCH, DELETE],
+    // credentials: true,
+      exposedHeaders: ['X-Total-Count'],
   })
 );
 
