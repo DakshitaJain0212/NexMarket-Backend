@@ -36,9 +36,9 @@ server.use(cookieParser());
 
 server.use(
   cors({
-    // origin: [],
-    // methods:[ POST, GET, PATCH, DELETE],
-    // credentials: true,
+    origin: ["https://nex-market-backend.vercel.app/"],
+    methods:[ POST, GET, PATCH, DELETE],
+    credentials: true,
       exposedHeaders: ['X-Total-Count'],
   })
 );
