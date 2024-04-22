@@ -27,14 +27,14 @@ exports.isAuth = (req,res, done) => {
     secure: false,
     auth: {
         user: 'dakshitaj02@gmail.com',
-        pass: 'znul uorn nlci qryb'
+        pass: process.env.MAIL_PASSWORD
     }
 });
 
   exports.sendMail = async function ({to, subject, text, html}){
     console.log(to);
     let info = await transporter.sendMail({
-        from: '"E-commerce" <dakshitajain@gmail.com>', // sender address
+        from: '"NexMarket" <dakshitajain@gmail.com>', // sender address
         to,
         subject,
         text,

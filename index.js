@@ -36,9 +36,6 @@ server.use(cookieParser());
 
 server.use(
   cors({
-    // origin: ["https://nex-market-backend.vercel.app/"],
-    // methods:[ POST, GET, PATCH, DELETE],
-    // credentials: true,
       exposedHeaders: ['X-Total-Count'],
   })
 );
@@ -57,7 +54,7 @@ server.use('/orders', orderRouter.router);
 // Payments
 
 // This is your test secret API key.
-const stripe = require('stripe')("sk_test_51P0nLwSDzx7bLwKxMLVqIt5PPVd3DeB2e5yjGp6RBfyr3Hve864FsIZajrkDhGVxnGzWk46DKBFenlnAG90hXsrt00Eiaw1ODr");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_PK);
 
 server.post('/create-payment-intent', async (req, res) => {
   const { totalAmount, orderId } = req.body;

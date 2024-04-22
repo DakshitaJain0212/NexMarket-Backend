@@ -221,15 +221,17 @@ exports.resetPasswordRequest = async (req, res) => {
     user.resetPasswordToken = token;
     await user.save();
 
-    // Also set token in email
-    const resetPageLink =
-      "https://nex-market-backend.vercel.app/reset-password";
+   
     const subject = 'reset password for e-commerce';
-    const html = `<p>Click <a href='${resetPageLink}'>here</a> to Reset Password</p>`;
+    const html = `<p>Meassage for Email verification to Reset Password</p>`;
 
     if (email) {
-      const response = await sendMail({ to: email, subject, html });
-      res.json(response);
+      const response = await sendMail({ to: email, subject, html});
+      res.json({
+        email: email,
+        token: token,
+        message: response
+      });
     } else {
       res.sendStatus(400);
     }
