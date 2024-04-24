@@ -36,6 +36,5 @@ Preview:
 - REST API using Express
 - API Authentication using JWT token
 - MongoDB Atlas cloud database
-- Vercel Server deployment
 - Email using Nodemailer - using GMail SMTP system
 - Payments using Stripe - PaymentIntent based custom flow
